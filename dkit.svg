@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="background-color: #fff;">
   <defs>
     <path id="outer" d="M 25 0 C 100 25, 100 75, 25 100 Z" />
-    <path id="inner" d="M 35 10 C 80 25, 80 75, 35 90 Z" />
+    <use id="inner" href="#outer" transform="scale(0.9 0.9)" transform-origin="50 50" />
     <mask id="inner-mask">
       <rect x="0" y="0" width="100" height="100" fill="#fff" />
       <use href="#inner" fill="#000" />
