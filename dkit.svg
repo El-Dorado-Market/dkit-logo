@@ -1,37 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="background-color: #fff;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .d {
+      fill: #ffe224;
+    }
+  </style>
   <defs>
-    <mask id="outer-circle-mask">
-      <rect x="50" y="0" width="50" height="100" fill="#fff" />
+    <g id="inner">
+      <circle cx="27.5" cy="50" r="12.5" />
+      <circle cx="47.5" cy="50" r="12.5" />
+      <rect height="25" width="20" x="27.5" y="37.5" />
+    </g>
+    <g id="outer">
+      <circle cx="27.5" cy="50" r="20" />
+      <circle cx="47.5" cy="50" r="20" />
+      <rect height="40" width="20" x="27.5" y="30" />
+    </g>
+    <g id="outer-mask">
+      <rect fill="#ffffff" height="100" width="100" x="0" y="0" />
+      <use fill="#000000" href="#inner" />
+    </g>
+    <mask id="outer-link-mask">
+      <use href="#outer-mask" />
+      <path d="M 55 50 L 60 50 A 7.5 7.5 45 0 0 67.5 57.5 L 67.5 62.5 A 12.5 12.5 45 0 1 55 50" fill="#000000" />
+      <path d="M 42.5 50 L 47.5 50 A 20 20 45 0 0 67.5 70 L 67.5 75 A 25 25 45 0 1 42.5 50" fill="black" />
     </mask>
-    <mask id="inner-circle-mask">
-      <rect x="50" y="0" width="50" height="100" fill="#fff" />
+    <mask id="outer-outline-mask">
+      <rect fill="#000000" height="100" width="100" x="0" y="0" />
+      <rect fill="#ffffff" height="100" rx="10" ry="10" width="100" x="0" y="0" />
     </mask>
-    <circle id="outer" mask="url(#outer-circle-mask)" cx="50" cy="50" r="50" />
-    <circle id="inner" mask="url(#inner-circle-mask)" cx="50" cy="50" r="45" />
-    <mask id="inner-mask">
-      <rect x="0" y="0" width="100" height="100" fill="#fff" />
-      <use href="#inner" fill="#000" />
-    </mask>
-    <mask id="inner-inverse-mask">
-      <use href="#inner" fill="#fff" />
+    <mask id="inner-outline-mask">
+      <rect fill="#ffffff" height="100" mask="url(#outer-outline-mask)" width="100" x="0" y="0" />
+      <rect fill="#000000" height="90" rx="10" ry="10" width="90" x="5" y="5" />
     </mask>
   </defs>
-  <g transform="translate(-22.5, 0)">
-    <g id="d" fill="#000">
-      <rect x="45" y="0" width="5" height="100" />
-      <use href="#outer" mask="url(#inner-mask)" />
-    </g>
-    <g id="k" mask="url(#inner-inverse-mask)" fill="#000">
-      <path d="M 50 50 L 95 0, 100 0, 55 50 Z" />
-      <path d="M 50 50 L 95 100, 100 100, 55 50 Z" />
-    </g>
-    <g id="i" fill="#000">
-      <path d="M 70 40 L 75 37.5 L 75 45 L 70 47.5 Z" />
-      <path d="M 70 50 L 75 47.5 L 75 60 L 70 62.5 Z" />
-    </g>
-    <g id="t" mask="url(#inner-inverse-mask)" fill="#000">
-      <path d="M 78.25 45 L 100 45 L 100 50 L 78.25 50 Z" />
-      <path d="M 82.5 0 L 87.5 0 L 87.5 60 L 82.5 62.5 Z" />
-    </g>
+  <g>
+    <rect class="d" height="100" mask="url(#inner-outline-mask)" width="100" x="0" y="0" />
+  </g>
+  <g transform="translate(-5 5) rotate(-45 50 50)">
+    <use class="d" href="#outer" id="outer-link" mask="url(#outer-link-mask)" />
+    <use href="#outer-link" transform="translate(15 0) rotate(180 50 50)" />
   </g>
 </svg>
