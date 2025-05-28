@@ -5,35 +5,15 @@
     }
   </style>
   <defs>
-    <g id="inner">
-      <circle cx="27.5" cy="50" r="12.5" />
-      <circle cx="47.5" cy="50" r="12.5" />
-      <rect height="25" width="20" x="27.5" y="37.5" />
-    </g>
-    <g id="outer">
-      <circle cx="27.5" cy="50" r="20" />
-      <circle cx="47.5" cy="50" r="20" />
-      <rect height="40" width="20" x="27.5" y="30" />
-    </g>
-    <g id="outer-mask">
-      <rect fill="#ffffff" height="100" width="100" x="0" y="0" />
-      <use fill="#000000" href="#inner" />
-    </g>
-    <mask id="link-mask">
-      <use href="#outer-mask" />
-      <path d="M 47.5 50 L 67.5 50 L 67.5 70 L 47.5 70 Z" fill="#000000" />
-      <circle fill="#ffffff" cx="63.75" cy="50" r="3.75" />
-    </mask>
-    <g id="link">
-      <use class="d" href="#outer" mask="url(#link-mask)" />
-      <path class="d" d="M 47.5 62.5 L 47.5 70 L 55 70 Z" />
-    </g>
+    <path id="link"
+      d="M 43.75 70 l -23.75 0 a 20 20 90 0 1 0 -40 l 20 0 a 20 20 45 0 1 20 20 a 3.75 3.75 0 0 1 -7.5 0 a 12.5 12.5 45 0 0 -12.5 -12.5 l -20 0 a 12.5 12.5 90 0 0 0 25 l 18.75 0 Z"
+      fill-rule="evenodd" />
   </defs>
   <path class="d"
     d="M 0 10 A 10 10 45 0 1 10 0 L 90 0 A 10 10 45 0 1 100 10 L 100 90 A 10 10 45 0 1 90 100 L 10 100 A 10 10 45 0 1 0 90 Z M 5 10 A 5 5 45 0 1 10 5 L 90 5 A 5 5 45 0 1 95 10 L 95 90 A 5 5 45 0 1 90 95 L 10 95 A 5 5 45 0 1 5 90 Z"
     fill-rule="evenodd" />
-  <g transform="translate(-5 5) rotate(-45 50 50)">
-    <use href="#link" />
-    <use href="#link" transform="translate(15 0) rotate(180 50 50)" />
+  <g>
+    <use class="d" href="#link" transform="rotate(-45 50 50)" />
+    <use class="d" href="#link" transform="rotate(135 50 50)" />
   </g>
 </svg>
