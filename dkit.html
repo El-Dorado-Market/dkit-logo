@@ -14,15 +14,21 @@
 <body>
   <style>
     :root {
+      --canvas-height: 400px;
+      --canvas-width: 800px;
       --logo-height: 200px;
       --logo-width: 600px;
     }
 
     body {
+      align-items: center;
       background-color: #000;
       display: flex;
+      height: var(--canvas-height);
+      justify-content: center;
       margin: 0;
       width: 100%;
+      width: var(--canvas-width);
     }
 
     .dkit {
